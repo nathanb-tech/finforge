@@ -1,0 +1,330 @@
+import { o as __toESM } from "../_runtime.mjs";
+import { t as supabase } from "./client-CYzVOhP_.mjs";
+import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as useAuth } from "./use-auth-DLGuRDd_.mjs";
+import { g as useNavigate } from "../_libs/@tanstack/react-router+[...].mjs";
+import { n as LogoWordmark } from "./Logo-AGteKSHq.mjs";
+import { c as Mail, d as LoaderCircle, m as EyeOff, n as TriangleAlert, o as ShieldCheck, p as Eye, u as Lock, x as ArrowRight } from "../_libs/lucide-react.mjs";
+import { t as createLovableAuth } from "../_libs/lovable.dev__cloud-auth-js.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/login-BYEuWnfl.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var auth_visual_default = "/assets/auth-visual-CsqeM3_U.jpg";
+var lovableAuth = createLovableAuth();
+var lovable = { auth: { signInWithOAuth: async (provider, opts) => {
+	const result = await lovableAuth.signInWithOAuth(provider, {
+		redirect_uri: opts?.redirect_uri,
+		extraParams: { ...opts?.extraParams }
+	});
+	if (result.redirected) return result;
+	if (result.error) return result;
+	try {
+		await supabase.auth.setSession(result.tokens);
+	} catch (e) {
+		return { error: e instanceof Error ? e : new Error(String(e)) };
+	}
+	return result;
+} } };
+function LoginPage() {
+	const [mode, setMode] = (0, import_react.useState)("signin");
+	const [showPwd, setShowPwd] = (0, import_react.useState)(false);
+	const [email, setEmail] = (0, import_react.useState)("");
+	const [password, setPassword] = (0, import_react.useState)("");
+	const [fullName, setFullName] = (0, import_react.useState)("");
+	const [busy, setBusy] = (0, import_react.useState)(false);
+	const [err, setErr] = (0, import_react.useState)(null);
+	const [info, setInfo] = (0, import_react.useState)(null);
+	const navigate = useNavigate();
+	const { user, loading } = useAuth();
+	(0, import_react.useEffect)(() => {
+		if (!loading && user) navigate({ to: "/dashboard" });
+	}, [
+		loading,
+		user,
+		navigate
+	]);
+	const submit = async (e) => {
+		e.preventDefault();
+		setErr(null);
+		setInfo(null);
+		setBusy(true);
+		try {
+			if (mode === "signin") {
+				const { error } = await supabase.auth.signInWithPassword({
+					email,
+					password
+				});
+				if (error) throw error;
+				navigate({ to: "/dashboard" });
+			} else {
+				const { data, error } = await supabase.auth.signUp({
+					email,
+					password,
+					options: {
+						data: { full_name: fullName },
+						emailRedirectTo: `${window.location.origin}/dashboard`
+					}
+				});
+				if (error) throw error;
+				if (!data.session) {
+					const { error: signInErr } = await supabase.auth.signInWithPassword({
+						email,
+						password
+					});
+					if (signInErr) throw signInErr;
+				}
+				navigate({ to: "/dashboard" });
+			}
+		} catch (e2) {
+			setErr(e2 instanceof Error ? e2.message : "Auth failed");
+		} finally {
+			setBusy(false);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "min-h-screen bg-background text-foreground grid lg:grid-cols-[1fr_1.05fr]",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
+			className: "relative hidden lg:flex flex-col justify-between p-10 overflow-hidden border-r border-border/40",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "absolute inset-0",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							src: auth_visual_default,
+							alt: "",
+							className: "w-full h-full object-cover opacity-70",
+							width: 1200,
+							height: 1600
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-tr from-background via-background/60 to-transparent" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 grid-bg opacity-30" })
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoWordmark, { className: "relative" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative max-w-md space-y-6",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ShieldCheck, { className: "w-3.5 h-3.5 text-primary" }), "Bank-grade simulation platform"]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", {
+							className: "text-4xl font-bold tracking-tight leading-tight",
+							children: [
+								"One score.",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "gradient-text",
+									children: "A thousand futures."
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-muted-foreground leading-relaxed",
+							children: "Sign in to simulate 18 months of financial futures for any MSME — and see the Future Financial Confidence Score in real time."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "grid grid-cols-3 gap-4 pt-4",
+							children: [
+								{
+									v: "1,000",
+									l: "scenarios"
+								},
+								{
+									v: "18 mo",
+									l: "horizon"
+								},
+								{
+									v: "76%",
+									l: "confidence"
+								}
+							].map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "glass-card rounded-xl p-3 text-center",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "text-lg font-display font-bold gradient-text-gold",
+									children: s.v
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5",
+									children: s.l
+								})]
+							}, s.l))
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative text-xs text-muted-foreground",
+					children: [
+						"© ",
+						(/* @__PURE__ */ new Date()).getFullYear(),
+						" FINVERSE AI · FINOVATE 2026, Malawi"
+					]
+				})
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+			className: "relative flex items-center justify-center p-6 md:p-12 hero-radial",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 grid-bg opacity-20 pointer-events-none" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "relative w-full max-w-md",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoWordmark, {
+					className: "lg:hidden mb-8",
+					size: "sm"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "animate-fade-up",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+							className: "text-3xl md:text-4xl font-bold tracking-tight",
+							children: mode === "signin" ? "Welcome back." : "Create your account."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-2 text-muted-foreground",
+							children: mode === "signin" ? "Sign in to your FINVERSE console." : "Get access to the simulator in seconds."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-8 grid grid-cols-2 p-1 rounded-xl bg-secondary/60 border border-border/50 text-sm",
+							children: ["signin", "signup"].map((m) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+								onClick: () => setMode(m),
+								className: `py-2 rounded-lg font-medium transition ${mode === m ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`,
+								children: m === "signin" ? "Sign in" : "Create account"
+							}, m))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							className: "mt-6 space-y-4",
+							onSubmit: submit,
+							children: [
+								mode === "signup" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Field, {
+									label: "Full name",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										type: "text",
+										placeholder: "Chisomo Banda",
+										value: fullName,
+										onChange: (e) => setFullName(e.target.value),
+										className: "w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60",
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Field, {
+									label: "Work email",
+									icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { className: "w-4 h-4" }),
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										type: "email",
+										placeholder: "you@bank.mw",
+										value: email,
+										onChange: (e) => setEmail(e.target.value),
+										className: "w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60",
+										required: true
+									})
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field, {
+									label: "Password",
+									icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "w-4 h-4" }),
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										type: showPwd ? "text" : "password",
+										placeholder: "••••••••",
+										value: password,
+										onChange: (e) => setPassword(e.target.value),
+										minLength: 6,
+										className: "w-full bg-transparent outline-none text-sm placeholder:text-muted-foreground/60",
+										required: true
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => setShowPwd((s) => !s),
+										className: "text-muted-foreground hover:text-foreground",
+										"aria-label": showPwd ? "Hide password" : "Show password",
+										children: showPwd ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EyeOff, { className: "w-4 h-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "w-4 h-4" })
+									})]
+								}),
+								err && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "text-xs text-destructive flex items-start gap-1.5",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TriangleAlert, { className: "w-3.5 h-3.5 mt-0.5" }),
+										" ",
+										err
+									]
+								}),
+								info && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "text-xs text-primary",
+									children: info
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+									type: "submit",
+									disabled: busy,
+									className: "group w-full mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold glow-primary hover:scale-[1.01] transition disabled:opacity-60",
+									children: busy ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoaderCircle, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [mode === "signin" ? "Sign in" : "Create account", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "w-4 h-4 group-hover:translate-x-1 transition" })] })
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "relative py-3",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "absolute inset-0 flex items-center",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "w-full border-t border-border/60" })
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+										className: "relative flex justify-center text-xs",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "bg-background px-3 text-muted-foreground uppercase tracking-widest",
+											children: "or continue with"
+										})
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "grid grid-cols-1 gap-3",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SocialButton, {
+										label: "Google",
+										onClick: async () => {
+											setBusy(true);
+											const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
+											if (result.error) setErr(result.error instanceof Error ? result.error.message : "Google sign-in failed");
+											setBusy(false);
+										}
+									})
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							className: "mt-8 text-xs text-center text-muted-foreground",
+							children: [
+								"By continuing you agree to FINVERSE's",
+								" ",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									className: "text-primary hover:underline",
+									href: "#",
+									children: "Terms"
+								}),
+								" and",
+								" ",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									className: "text-primary hover:underline",
+									href: "#",
+									children: "Privacy Policy"
+								}),
+								"."
+							]
+						})
+					]
+				})]
+			})]
+		})]
+	});
+}
+function Field({ label, icon, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+		className: "block",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			className: "text-xs font-medium text-muted-foreground",
+			children: label
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mt-1.5 flex items-center gap-3 px-4 py-3 rounded-xl bg-input/50 border border-border/60 focus-within:border-primary/60 focus-within:ring-2 focus-within:ring-primary/20 transition",
+			children: [icon && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "text-muted-foreground",
+				children: icon
+			}), children]
+		})]
+	});
+}
+function SocialButton({ label, onClick }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+		type: "button",
+		onClick,
+		className: "flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl glass-card text-sm font-medium hover:border-primary/40 transition",
+		children: label
+	});
+}
+//#endregion
+export { LoginPage as component };

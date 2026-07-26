@@ -1,0 +1,935 @@
+import { o as __toESM } from "../_runtime.mjs";
+import { a as createTanStackMcpHandler, i as createTanStackListToolsHandler, n as defineTool, o as createTanStackOAuthProtectedResourceMetadataHandler, r as createTanStackInvokeToolHandler, t as defineMcp } from "../_libs/@lovable.dev/mcp-js+[...].mjs";
+import { n as require_jsx_runtime, r as require_react, t as QueryClientProvider } from "../_libs/react+tanstack__react-query.mjs";
+import { t as AuthProvider } from "./use-auth-DLGuRDd_.mjs";
+import { _ as useRouter, c as HeadContent, d as Outlet, f as lazyRouteComponent, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
+import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
+import { Ct as record, bt as object, lt as any, ot as _enum, wt as string, yt as number } from "../_libs/@ai-sdk/gateway+[...].mjs";
+import { t as generateText } from "../_libs/ai.mjs";
+import { t as createOpenAICompatible } from "../_libs/ai-sdk__openai-compatible.mjs";
+import processModule from "node:process";
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CL85wsER.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var styles_default = "/assets/styles-yW7fhHdg.css";
+function reportLovableError(error, context = {}) {
+	if (typeof window === "undefined") return;
+	window.__lovableEvents?.captureException?.(error, {
+		source: "react_error_boundary",
+		route: window.location.pathname,
+		...context
+	}, {
+		mechanism: "react_error_boundary",
+		handled: false,
+		severity: "error"
+	});
+}
+function NotFoundComponent() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center bg-background px-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "max-w-md text-center",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-7xl font-bold gradient-text",
+					children: "404"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+					className: "mt-4 text-xl font-semibold text-foreground",
+					children: "Page not found"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-2 text-sm text-muted-foreground",
+					children: "The page you're looking for doesn't exist or has been moved."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-6",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+						to: "/",
+						className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
+						children: "Go home"
+					})
+				})
+			]
+		})
+	});
+}
+function ErrorComponent({ error, reset }) {
+	console.error(error);
+	const router = useRouter();
+	(0, import_react.useEffect)(() => {
+		reportLovableError(error, { boundary: "tanstack_root_error_component" });
+	}, [error]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "flex min-h-screen items-center justify-center bg-background px-4",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "max-w-md text-center",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+					className: "text-xl font-semibold tracking-tight text-foreground",
+					children: "This page didn't load"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-2 text-sm text-muted-foreground",
+					children: "Something went wrong on our end. You can try refreshing or head back home."
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-6 flex flex-wrap justify-center gap-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						onClick: () => {
+							router.invalidate();
+							reset();
+						},
+						className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
+						children: "Try again"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "/",
+						className: "inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent",
+						children: "Go home"
+					})]
+				})
+			]
+		})
+	});
+}
+var Route$8 = createRootRouteWithContext()({
+	head: () => ({
+		meta: [
+			{ charSet: "utf-8" },
+			{
+				name: "viewport",
+				content: "width=device-width, initial-scale=1"
+			},
+			{ title: "FINVERSE AI — Predict a business's future before you lend" },
+			{
+				name: "description",
+				content: "FINVERSE AI is a financial simulation engine that helps banks lend to Malawi's MSMEs by predicting future repayment across thousands of scenarios."
+			},
+			{
+				name: "author",
+				content: "FINVERSE AI"
+			},
+			{
+				property: "og:title",
+				content: "FINVERSE AI — Predict a business's future before you lend"
+			},
+			{
+				property: "og:description",
+				content: "FINVERSE AI is a financial simulation engine that helps banks lend to Malawi's MSMEs by predicting future repayment across thousands of scenarios."
+			},
+			{
+				property: "og:type",
+				content: "website"
+			},
+			{
+				name: "twitter:card",
+				content: "summary_large_image"
+			},
+			{
+				name: "twitter:title",
+				content: "FINVERSE AI — Predict a business's future before you lend"
+			},
+			{
+				name: "twitter:description",
+				content: "FINVERSE AI is a financial simulation engine that helps banks lend to Malawi's MSMEs by predicting future repayment across thousands of scenarios."
+			},
+			{
+				property: "og:image",
+				content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/187128f3-75f7-4e4e-8961-31ce6de6988f/id-preview-d50b2662--359c3e04-3486-49fc-a640-1d27468c27ac.lovable.app-1784561070248.png"
+			},
+			{
+				name: "twitter:image",
+				content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/187128f3-75f7-4e4e-8961-31ce6de6988f/id-preview-d50b2662--359c3e04-3486-49fc-a640-1d27468c27ac.lovable.app-1784561070248.png"
+			}
+		],
+		links: [
+			{
+				rel: "stylesheet",
+				href: styles_default
+			},
+			{
+				rel: "icon",
+				href: "/favicon.ico",
+				type: "image/x-icon"
+			},
+			{
+				rel: "preconnect",
+				href: "https://fonts.googleapis.com"
+			},
+			{
+				rel: "preconnect",
+				href: "https://fonts.gstatic.com",
+				crossOrigin: "anonymous"
+			},
+			{
+				rel: "stylesheet",
+				href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+			}
+		]
+	}),
+	shellComponent: RootShell,
+	component: RootComponent,
+	notFoundComponent: NotFoundComponent,
+	errorComponent: ErrorComponent
+});
+function RootShell({ children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("html", {
+		lang: "en",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("body", { children: [children, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Scripts, {})] })]
+	});
+}
+function RootComponent() {
+	const { queryClient } = Route$8.useRouteContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(QueryClientProvider, {
+		client: queryClient,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AuthProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) })
+	});
+}
+var $$splitComponentImporter$2 = () => import("./routes-Cp34VRD0.mjs");
+var Route$7 = createFileRoute("/")({ component: lazyRouteComponent($$splitComponentImporter$2, "component") });
+var $$splitComponentImporter$1 = () => import("./dashboard-CVYN951p.mjs");
+var Route$6 = createFileRoute("/dashboard")({
+	head: () => ({ meta: [{ title: "Dashboard · FINVERSE AI" }, {
+		name: "description",
+		content: "Run financial simulations on your MSME portfolio."
+	}] }),
+	component: lazyRouteComponent($$splitComponentImporter$1, "component")
+});
+var $$splitComponentImporter = () => import("./login-BYEuWnfl.mjs");
+var Route$5 = createFileRoute("/login")({
+	head: () => ({ meta: [{ title: "Sign in · FINVERSE AI" }, {
+		name: "description",
+		content: "Sign in to run financial simulations on sample MSME profiles."
+	}] }),
+	component: lazyRouteComponent($$splitComponentImporter, "component")
+});
+var mcp_default = defineMcp({
+	name: "finverse-ai-mcp",
+	title: "Finverse.ai MCP",
+	version: "0.1.0",
+	instructions: "Finverse.ai tools for Malawian MSME financial forecasting. Use `quick_financial_health` for a fast deterministic sanity check, and `simulate_msme_future` to run the AI Monte Carlo and get a Future Financial Confidence Score across base / stress / crisis regimes. Both tools are stateless — pass the business profile in each call.",
+	tools: [defineTool({
+		name: "simulate_msme_future",
+		title: "Simulate MSME Future Financial Confidence",
+		description: "Run FINVERSE AI's 1,000-scenario Monte Carlo across BASE / STRESS / CRISIS regimes for a Malawian MSME and return the Future Financial Confidence Score (0-100), regime survival probabilities, an AI summary, and a lender recommendation. Fully stateless — takes a business profile in the call, returns the forecast.",
+		inputSchema: {
+			business_name: string().min(1).describe("Business or trading name."),
+			sector: _enum([
+				"Retail",
+				"Agriculture",
+				"Manufacturing",
+				"Services",
+				"Transport",
+				"Hospitality"
+			]).describe("Primary sector of the MSME."),
+			monthly_revenue: number().nonnegative().describe("Average monthly revenue in MWK."),
+			monthly_expenses: number().nonnegative().describe("Average monthly operating expenses in MWK."),
+			cash_balance: number().nonnegative().describe("Current cash on hand in MWK."),
+			existing_loans: number().nonnegative().describe("Outstanding loan principal in MWK."),
+			employees: number().int().nonnegative().describe("Number of employees.")
+		},
+		annotations: {
+			readOnlyHint: true,
+			idempotentHint: false,
+			openWorldHint: true
+		},
+		handler: async (input) => {
+			const key = processModule.env.LOVABLE_API_KEY;
+			if (!key) return {
+				content: [{
+					type: "text",
+					text: "LOVABLE_API_KEY is not configured on the server."
+				}],
+				isError: true
+			};
+			const netCF = input.monthly_revenue - input.monthly_expenses;
+			const runway = netCF > 0 ? 24 : input.cash_balance / Math.max(1, input.monthly_expenses - input.monthly_revenue);
+			const debtRatio = input.existing_loans / Math.max(1, input.monthly_revenue * 12);
+			const prompt = `You are FINVERSE AI, a financial simulation engine for Malawian MSME lending.
+Given this business profile, run a mental Monte Carlo of 1,000 scenarios across an 18-month horizon and estimate survival probability under three regimes:
+- BASE: normal Malawian macro conditions
+- STRESS: inflation spike + 20% revenue drop
+- CRISIS: FX shock + 40% revenue drop + supply disruption
+
+Business:
+- Name: ${input.business_name}
+- Sector: ${input.sector}
+- Monthly revenue (MWK): ${input.monthly_revenue}
+- Monthly expenses (MWK): ${input.monthly_expenses}
+- Cash on hand: ${input.cash_balance}
+- Existing loans: ${input.existing_loans}
+- Employees: ${input.employees}
+- Net monthly cashflow: ${netCF}
+- Approx runway (months): ${runway.toFixed(1)}
+- Debt/annual-revenue ratio: ${debtRatio.toFixed(2)}
+
+Return ONLY valid JSON matching this exact shape (no prose, no markdown fences):
+{
+  "ffcs_score": number 0-100,
+  "base_survival": number 0-100,
+  "stress_survival": number 0-100,
+  "crisis_survival": number 0-100,
+  "recommendation": string,
+  "ai_summary": string
+}
+Weight ffcs_score 50/30/20 across base/stress/crisis. Be concise, quantitative, realistic for a Malawian MSME.`;
+			try {
+				const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Lovable-API-Key": key
+					},
+					body: JSON.stringify({
+						model: "google/gemini-2.5-flash",
+						messages: [{
+							role: "user",
+							content: prompt
+						}],
+						response_format: { type: "json_object" }
+					})
+				});
+				if (!res.ok) {
+					const txt = await res.text();
+					return {
+						content: [{
+							type: "text",
+							text: `AI gateway error ${res.status}: ${txt}`
+						}],
+						isError: true
+					};
+				}
+				const raw = (await res.json()).choices?.[0]?.message?.content ?? "";
+				let parsed;
+				try {
+					parsed = JSON.parse(raw);
+				} catch {
+					return {
+						content: [{
+							type: "text",
+							text: `Model returned non-JSON output: ${raw}`
+						}],
+						isError: true
+					};
+				}
+				return {
+					content: [{
+						type: "text",
+						text: JSON.stringify(parsed, null, 2)
+					}],
+					structuredContent: parsed
+				};
+			} catch (err) {
+				return {
+					content: [{
+						type: "text",
+						text: `Simulation failed: ${err instanceof Error ? err.message : String(err)}`
+					}],
+					isError: true
+				};
+			}
+		}
+	}), defineTool({
+		name: "quick_financial_health",
+		title: "Quick MSME Financial Health",
+		description: "Deterministic (no-AI) quick check of an MSME's core financial ratios: net monthly cashflow, runway in months, debt-to-annual-revenue ratio, and a rough 0-100 heuristic health score. Useful for a fast sanity check before running the full simulation.",
+		inputSchema: {
+			monthly_revenue: number().nonnegative(),
+			monthly_expenses: number().nonnegative(),
+			cash_balance: number().nonnegative(),
+			existing_loans: number().nonnegative()
+		},
+		annotations: {
+			readOnlyHint: true,
+			idempotentHint: true,
+			openWorldHint: false
+		},
+		handler: ({ monthly_revenue, monthly_expenses, cash_balance, existing_loans }) => {
+			const netCF = monthly_revenue - monthly_expenses;
+			const runwayMonths = netCF >= 0 ? Infinity : cash_balance / Math.max(1, monthly_expenses - monthly_revenue);
+			const debtRatio = existing_loans / Math.max(1, monthly_revenue * 12);
+			let score = 50;
+			score += netCF > 0 ? 25 : -15;
+			score += runwayMonths >= 6 ? 15 : runwayMonths >= 3 ? 5 : -15;
+			score += debtRatio <= .3 ? 10 : debtRatio <= .6 ? 0 : -15;
+			score = Math.max(0, Math.min(100, Math.round(score)));
+			const result = {
+				net_monthly_cashflow: netCF,
+				runway_months: Number.isFinite(runwayMonths) ? Number(runwayMonths.toFixed(1)) : null,
+				debt_to_annual_revenue: Number(debtRatio.toFixed(2)),
+				heuristic_score: score
+			};
+			return {
+				content: [{
+					type: "text",
+					text: JSON.stringify(result, null, 2)
+				}],
+				structuredContent: result
+			};
+		}
+	})]
+});
+var Route$4 = createFileRoute("/mcp")({ server: { handlers: { ANY: createTanStackMcpHandler(mcp_default, {
+	resourcePath: "/mcp",
+	metadataPath: "/.well-known/oauth-protected-resource",
+	trustForwardedHost: true
+}) } } });
+var Route$3 = createFileRoute("/.mcp/list-tools")({ server: { handlers: { ANY: createTanStackListToolsHandler(mcp_default, {
+	resourcePath: "/mcp",
+	metadataPath: "/.well-known/oauth-protected-resource",
+	trustForwardedHost: true
+}) } } });
+var Route$2 = createFileRoute("/.well-known/oauth-protected-resource")({ server: { handlers: { ANY: createTanStackOAuthProtectedResourceMetadataHandler(mcp_default, {
+	resourcePath: "/mcp",
+	metadataPath: "/.well-known/oauth-protected-resource",
+	trustForwardedHost: true
+}) } } });
+function createLovableAiGateway() {
+	const key = processModule.env.LOVABLE_API_KEY;
+	if (!key) throw new Error("LOVABLE_API_KEY missing");
+	return createOpenAICompatible({
+		name: "lovable",
+		baseURL: "https://ai.gateway.lovable.dev/v1",
+		supportsStructuredOutputs: true,
+		headers: {
+			"Lovable-API-Key": key,
+			"X-Lovable-AIG-SDK": "vercel-ai-sdk"
+		}
+	});
+}
+var PESTELSchema = object({
+	government_stability: number().min(0).max(1).default(.7),
+	policy_consistency: number().min(0).max(1).default(.6),
+	corruption_index: number().min(0).max(1).default(.4),
+	tax_burden: number().min(0).max(1).default(.5),
+	inflation_rate: number().min(0).max(50).default(15),
+	exchange_rate_volatility: number().min(0).max(1).default(.3),
+	interest_rate: number().min(0).max(30).default(18),
+	fuel_price_index: number().min(50).max(200).default(100),
+	gdp_growth: number().min(-5).max(10).default(3.5),
+	mobile_money_penetration: number().min(0).max(1).default(.85),
+	financial_literacy: number().min(0).max(1).default(.35),
+	population_growth: number().min(0).max(5).default(2.6),
+	urban_population: number().min(0).max(1).default(.25),
+	internet_penetration: number().min(0).max(1).default(.24),
+	digital_payments_usage: number().min(0).max(1).default(.65),
+	tech_infrastructure: number().min(0).max(1).default(.4),
+	rainfall_impact: number().min(-1).max(1).default(0),
+	drought_risk: number().min(0).max(1).default(.35),
+	cyclone_risk: number().min(0).max(1).default(.15),
+	crop_yield_variability: number().min(0).max(1).default(.4),
+	contract_enforcement: number().min(0).max(1).default(.45),
+	business_registration_ease: number().min(0).max(1).default(.5),
+	labor_laws_rigidity: number().min(0).max(1).default(.6)
+});
+var FPCISONSchema = object({
+	credit_availability: number().min(0).max(1).default(.25),
+	access_to_banking: number().min(0).max(1).default(.35),
+	informal_lending_rates: number().min(0).max(100).default(60),
+	remittance_inflows: number().min(0).max(1e3).default(100),
+	policy_change_risk: number().min(0).max(1).default(.4),
+	regulatory_burden: number().min(0).max(1).default(.55),
+	election_volatility: number().min(0).max(1).default(.3),
+	market_density: number().min(0).max(1).default(.6),
+	informal_competition: number().min(0).max(1).default(.7),
+	market_entry_barriers: number().min(0).max(1).default(.4),
+	electricity_reliability: number().min(0).max(1).default(.45),
+	road_quality: number().min(0).max(1).default(.35),
+	transport_costs: number().min(0).max(100).default(45),
+	water_availability: number().min(0).max(1).default(.55),
+	trust_in_banks: number().min(0).max(1).default(.4),
+	community_support: number().min(0).max(1).default(.75),
+	entrepreneurship_culture: number().min(0).max(1).default(.65),
+	labor_availability: number().min(0).max(1).default(.8),
+	labor_skill_level: number().min(0).max(1).default(.35),
+	supply_chain_reliability: number().min(0).max(1).default(.45),
+	climate_vulnerability: number().min(0).max(1).default(.6),
+	natural_disaster_risk: number().min(0).max(1).default(.4),
+	agricultural_sensitivity: number().min(0).max(1).default(.7)
+});
+var InputSchema = object({
+	business_name: string(),
+	sector: string(),
+	monthly_revenue: number(),
+	monthly_expenses: number(),
+	cash_balance: number(),
+	existing_loans: number(),
+	employees: number(),
+	years_in_operation: number().optional().default(3),
+	location: _enum(["urban", "rural"]).optional().default("rural"),
+	payment_reliability: number().min(0).max(1).optional().default(.7),
+	customer_payment_delay: number().optional().default(14),
+	pestel: PESTELSchema.optional(),
+	fpcison: FPCISONSchema.optional()
+});
+object({
+	ffcs_score: number(),
+	base_survival: number(),
+	stress_survival: number(),
+	crisis_survival: number(),
+	recommendation: string(),
+	ai_summary: string(),
+	simulations_run: number().default(1e3),
+	pestel_impact_score: number().optional(),
+	fpcison_impact_score: number().optional(),
+	scenario_breakdown: record(string(), any()).optional()
+});
+var MonteCarloEngine = class {
+	pestel;
+	fpcison;
+	profile;
+	seed = 42;
+	constructor(profile, pestel = {}, fpcison = {}) {
+		this.profile = profile;
+		this.pestel = this.getDefaultPestel(pestel);
+		this.fpcison = this.getDefaultFpcison(fpcison);
+	}
+	getDefaultPestel(override) {
+		return {
+			government_stability: override?.government_stability ?? .7,
+			policy_consistency: override?.policy_consistency ?? .6,
+			corruption_index: override?.corruption_index ?? .4,
+			tax_burden: override?.tax_burden ?? .5,
+			inflation_rate: override?.inflation_rate ?? 15,
+			exchange_rate_volatility: override?.exchange_rate_volatility ?? .3,
+			interest_rate: override?.interest_rate ?? 18,
+			fuel_price_index: override?.fuel_price_index ?? 100,
+			gdp_growth: override?.gdp_growth ?? 3.5,
+			mobile_money_penetration: override?.mobile_money_penetration ?? .85,
+			financial_literacy: override?.financial_literacy ?? .35,
+			population_growth: override?.population_growth ?? 2.6,
+			urban_population: override?.urban_population ?? .25,
+			internet_penetration: override?.internet_penetration ?? .24,
+			digital_payments_usage: override?.digital_payments_usage ?? .65,
+			tech_infrastructure: override?.tech_infrastructure ?? .4,
+			rainfall_impact: override?.rainfall_impact ?? 0,
+			drought_risk: override?.drought_risk ?? .35,
+			cyclone_risk: override?.cyclone_risk ?? .15,
+			crop_yield_variability: override?.crop_yield_variability ?? .4,
+			contract_enforcement: override?.contract_enforcement ?? .45,
+			business_registration_ease: override?.business_registration_ease ?? .5,
+			labor_laws_rigidity: override?.labor_laws_rigidity ?? .6
+		};
+	}
+	getDefaultFpcison(override) {
+		return {
+			credit_availability: override?.credit_availability ?? .25,
+			access_to_banking: override?.access_to_banking ?? .35,
+			informal_lending_rates: override?.informal_lending_rates ?? 60,
+			remittance_inflows: override?.remittance_inflows ?? 100,
+			policy_change_risk: override?.policy_change_risk ?? .4,
+			regulatory_burden: override?.regulatory_burden ?? .55,
+			election_volatility: override?.election_volatility ?? .3,
+			market_density: override?.market_density ?? .6,
+			informal_competition: override?.informal_competition ?? .7,
+			market_entry_barriers: override?.market_entry_barriers ?? .4,
+			electricity_reliability: override?.electricity_reliability ?? .45,
+			road_quality: override?.road_quality ?? .35,
+			transport_costs: override?.transport_costs ?? 45,
+			water_availability: override?.water_availability ?? .55,
+			trust_in_banks: override?.trust_in_banks ?? .4,
+			community_support: override?.community_support ?? .75,
+			entrepreneurship_culture: override?.entrepreneurship_culture ?? .65,
+			labor_availability: override?.labor_availability ?? .8,
+			labor_skill_level: override?.labor_skill_level ?? .35,
+			supply_chain_reliability: override?.supply_chain_reliability ?? .45,
+			climate_vulnerability: override?.climate_vulnerability ?? .6,
+			natural_disaster_risk: override?.natural_disaster_risk ?? .4,
+			agricultural_sensitivity: override?.agricultural_sensitivity ?? .7
+		};
+	}
+	random() {
+		this.seed = (this.seed * 9301 + 49297) % 233280;
+		return this.seed / 233280;
+	}
+	randomChoice(items, weights) {
+		if (!weights) weights = items.map(() => 1);
+		const total = weights.reduce((a, b) => a + b, 0);
+		let rand = this.random() * total;
+		for (let i = 0; i < items.length; i++) {
+			rand -= weights[i];
+			if (rand <= 0) return items[i];
+		}
+		return items[items.length - 1];
+	}
+	generateScenario() {
+		const p = this.pestel;
+		const f = this.fpcison;
+		const isAgriculture = this.profile.sector === "Agriculture";
+		const rainfallOptions = [
+			"normal",
+			"below_normal",
+			"above_normal",
+			"drought"
+		];
+		const rainfallWeights = this.getRainfallWeights();
+		const rainfall = this.randomChoice(rainfallOptions, rainfallWeights);
+		const rainfallImpact = {
+			normal: 0,
+			below_normal: -.15 * p.crop_yield_variability,
+			above_normal: .05,
+			drought: -.4 * p.crop_yield_variability
+		}[rainfall] || 0;
+		const inflationImpact = p.inflation_rate / 100 * this.random() * .3;
+		const exchangeImpact = p.exchange_rate_volatility * this.random() * .2;
+		const fuelImpact = (p.fuel_price_index - 100) / 100 * .15;
+		p.interest_rate / 100 * .1;
+		const politicalRisk = (1 - p.government_stability) * .15 + (1 - p.policy_consistency) * .1 + p.corruption_index * .05;
+		const policyImpact = f.policy_change_risk * this.random() * .1;
+		const socialImpact = (1 - f.trust_in_banks) * .05 + (1 - f.entrepreneurship_culture) * .05 + (1 - p.financial_literacy) * .05;
+		const techImpact = (1 - p.tech_infrastructure) * .05 + (1 - p.digital_payments_usage) * .03;
+		const legalImpact = (1 - p.contract_enforcement) * .08 + (1 - p.business_registration_ease) * .04;
+		const infraImpact = (1 - f.electricity_reliability) * .08 + (1 - f.road_quality) * .06 + f.transport_costs / 100 * .05;
+		const compImpact = f.market_density * .05 + f.informal_competition * .05;
+		const opsImpact = (1 - f.labor_skill_level) * .05 + (1 - f.supply_chain_reliability) * .08;
+		const naturalImpact = f.climate_vulnerability * .08 + f.natural_disaster_risk * .05 + (isAgriculture ? f.agricultural_sensitivity * .15 : 0);
+		const agricultureImpact = isAgriculture ? (1 - p.crop_yield_variability) * .1 + (1 - f.agricultural_sensitivity) * .1 : 0;
+		const revenueImpact = rainfallImpact * .3 + inflationImpact * .1 + exchangeImpact * .1 + politicalRisk * .05 + socialImpact * .05 + infraImpact * .05 + naturalImpact * .1 + (isAgriculture ? agricultureImpact * .2 : 0) + this.random() * .05;
+		const expenseImpact = fuelImpact * .15 + inflationImpact * .15 + policyImpact * .1 + legalImpact * .1 + opsImpact * .1 + compImpact * .1 + this.random() * .1;
+		const totalImpact = revenueImpact + expenseImpact;
+		let scenarioType;
+		if (totalImpact > -.1) scenarioType = "base";
+		else if (totalImpact > -.3) scenarioType = "stress";
+		else scenarioType = "crisis";
+		return {
+			rainfall,
+			rainfallImpact,
+			revenueImpact,
+			expenseImpact,
+			totalImpact,
+			scenarioType,
+			inflationImpact,
+			exchangeImpact,
+			politicalRisk,
+			socialImpact,
+			techImpact,
+			legalImpact,
+			infraImpact,
+			compImpact,
+			opsImpact,
+			naturalImpact,
+			agricultureImpact
+		};
+	}
+	getRainfallWeights() {
+		const p = this.pestel;
+		const droughtRisk = p.drought_risk;
+		const cycloneRisk = p.cyclone_risk;
+		return [
+			.5 - droughtRisk * .2 - cycloneRisk * .1,
+			.25 + droughtRisk * .2,
+			.2 - cycloneRisk * .1,
+			.05 + droughtRisk * .2 + cycloneRisk * .2
+		];
+	}
+	runScenario(scenario, horizon) {
+		const profile = this.profile;
+		let cash = profile.cash_balance;
+		const monthlyRevenue = profile.monthly_revenue;
+		const monthlyExpenses = profile.monthly_expenses;
+		const monthlyCashflows = [];
+		let survives = true;
+		let survivalMonths = horizon;
+		const paymentDelayImpact = profile.customer_payment_delay > 30 ? .85 : 1;
+		const sectorImpact = this.getSectorImpact(profile.sector);
+		for (let month = 0; month < horizon; month++) {
+			let revenue = monthlyRevenue * (1 + scenario.revenueImpact);
+			const seasonality = this.getSeasonality(month);
+			revenue *= 1 + seasonality;
+			revenue *= sectorImpact;
+			revenue *= paymentDelayImpact;
+			let expenses = monthlyExpenses * (1 + scenario.expenseImpact);
+			expenses *= 1 + scenario.inflationImpact * .5;
+			let cashflow = revenue - expenses;
+			if (profile.existing_loans > 0) {
+				const loanPayment = profile.existing_loans * .05;
+				cashflow -= loanPayment;
+			}
+			monthlyCashflows.push(cashflow);
+			cash += cashflow;
+			if (cash < 0) {
+				survives = false;
+				survivalMonths = month;
+				break;
+			}
+		}
+		return {
+			survives,
+			survivalMonths,
+			finalCash: cash,
+			monthlyCashflows,
+			scenario
+		};
+	}
+	getSeasonality(month) {
+		return {
+			0: -.1,
+			1: -.15,
+			2: -.1,
+			3: .05,
+			4: .15,
+			5: .1,
+			6: .05,
+			7: 0,
+			8: .05,
+			9: .1,
+			10: .05,
+			11: -.05
+		}[month % 12] || 0;
+	}
+	getSectorImpact(sector) {
+		return {
+			Agriculture: 1,
+			Retail: .95,
+			Manufacturing: .9,
+			Services: .98,
+			Transport: .92,
+			Construction: .88,
+			Hospitality: .95
+		}[sector] || .95;
+	}
+	simulate(nScenarios = 1e3, horizon = 18) {
+		const results = [];
+		let survivalCount = 0;
+		for (let i = 0; i < nScenarios; i++) {
+			const scenario = this.generateScenario();
+			const result = this.runScenario(scenario, horizon);
+			results.push(result);
+			if (result.survives) survivalCount++;
+		}
+		return {
+			results,
+			survivalRate: survivalCount / nScenarios,
+			pestelScore: this.calculatePestelImpact(),
+			fpcisonScore: this.calculateFpcisonImpact(),
+			buckets: this.bucketResults(results)
+		};
+	}
+	calculatePestelImpact() {
+		const p = this.pestel;
+		return [
+			p.government_stability * .15,
+			p.policy_consistency * .1,
+			(1 - p.corruption_index) * .1,
+			(1 - p.tax_burden) * .05,
+			(1 - Math.min(p.inflation_rate / 50, 1)) * .15,
+			(1 - p.exchange_rate_volatility) * .1,
+			p.mobile_money_penetration * .1,
+			p.digital_payments_usage * .05,
+			(1 - p.drought_risk) * .1,
+			(1 - p.cyclone_risk) * .05,
+			p.contract_enforcement * .05
+		].reduce((a, b) => a + b, 0) * 100;
+	}
+	calculateFpcisonImpact() {
+		const f = this.fpcison;
+		return [
+			f.credit_availability * .15,
+			f.access_to_banking * .1,
+			(1 - f.policy_change_risk) * .1,
+			(1 - f.regulatory_burden) * .05,
+			(1 - f.informal_competition) * .1,
+			f.electricity_reliability * .1,
+			f.road_quality * .05,
+			f.community_support * .05,
+			f.labor_availability * .05,
+			f.supply_chain_reliability * .1,
+			(1 - f.climate_vulnerability) * .1,
+			(1 - f.natural_disaster_risk) * .05
+		].reduce((a, b) => a + b, 0) * 100;
+	}
+	bucketResults(results) {
+		const base = results.filter((r) => r.scenario.scenarioType === "base");
+		const stress = results.filter((r) => r.scenario.scenarioType === "stress");
+		const crisis = results.filter((r) => r.scenario.scenarioType === "crisis");
+		const createBucket = (scenarios, name) => {
+			if (scenarios.length === 0) return {
+				survival_rate: 0,
+				avg_cashflow: 0,
+				risk_level: "HIGH",
+				count: 0
+			};
+			const survivalRate = scenarios.filter((r) => r.survives).length / scenarios.length;
+			const avgCashflow = scenarios.reduce((sum, r) => {
+				return sum + r.monthlyCashflows.reduce((a, b) => a + b, 0) / r.monthlyCashflows.length;
+			}, 0) / scenarios.length;
+			let riskLevel = "LOW";
+			if (survivalRate < .5) riskLevel = "HIGH";
+			else if (survivalRate < .7) riskLevel = "MEDIUM";
+			return {
+				survival_rate: survivalRate * 100,
+				avg_cashflow: avgCashflow,
+				risk_level: riskLevel,
+				count: scenarios.length
+			};
+		};
+		return {
+			base: createBucket(base, "Base Case"),
+			stress: createBucket(stress, "Stress Case"),
+			crisis: createBucket(crisis, "Crisis Case")
+		};
+	}
+};
+var Route$1 = createFileRoute("/api/simulate")({ server: { handlers: { POST: async ({ request }) => {
+	let body;
+	try {
+		body = await request.json();
+	} catch {
+		return Response.json({ error: "Invalid JSON" }, { status: 400 });
+	}
+	const parsed = InputSchema.safeParse(body);
+	if (!parsed.success) return Response.json({
+		error: parsed.error.message,
+		details: parsed.error.issues
+	}, { status: 400 });
+	const m = parsed.data;
+	const simulation = new MonteCarloEngine(m, m.pestel || {}, m.fpcison || {}).simulate(1e3, 18);
+	const baseSurvival = simulation.buckets.base.survival_rate / 100;
+	const stressSurvival = simulation.buckets.stress.survival_rate / 100;
+	const crisisSurvival = simulation.buckets.crisis.survival_rate / 100;
+	const ffcsScore = baseSurvival * .5 * 100 + stressSurvival * .3 * 100 + crisisSurvival * .2 * 100;
+	let recommendation = "";
+	let riskLevel = "";
+	if (ffcsScore >= 75) {
+		recommendation = `✅ APPROVE: ${ffcsScore.toFixed(1)}% confidence. Strong likelihood of repayment across all scenarios. Base case: ${simulation.buckets.base.survival_rate.toFixed(1)}% survival. Even in crisis: ${simulation.buckets.crisis.survival_rate.toFixed(1)}% survival.`;
+		riskLevel = "LOW";
+	} else if (ffcsScore >= 60) {
+		recommendation = `⚠️ CONDITIONAL: ${ffcsScore.toFixed(1)}% confidence. Consider adjusted interest rate or reduced loan amount. Base: ${simulation.buckets.base.survival_rate.toFixed(1)}%, Crisis: ${simulation.buckets.crisis.survival_rate.toFixed(1)}%.`;
+		riskLevel = "MEDIUM";
+	} else if (ffcsScore >= 45) {
+		recommendation = `⚠️ HIGH RISK: ${ffcsScore.toFixed(1)}% confidence. Recommend additional collateral or shorter repayment period. Base: ${simulation.buckets.base.survival_rate.toFixed(1)}%, Crisis: ${simulation.buckets.crisis.survival_rate.toFixed(1)}%.`;
+		riskLevel = "HIGH";
+	} else {
+		recommendation = `❌ DECLINE: ${ffcsScore.toFixed(1)}% confidence. Business unlikely to survive adverse scenarios. Base: ${simulation.buckets.base.survival_rate.toFixed(1)}%, Crisis: ${simulation.buckets.crisis.survival_rate.toFixed(1)}%.`;
+		riskLevel = "VERY_HIGH";
+	}
+	const model = createLovableAiGateway()("google/gemini-2.5-flash");
+	const summaryPrompt = `You are FINVERSE AI, a financial simulation engine for Malawian MSME lending.
+
+Our Monte Carlo simulation (1,000 scenarios across 18 months) calculated these results:
+
+Business: ${m.business_name}
+Sector: ${m.sector}
+Monthly Revenue: MWK ${m.monthly_revenue}
+Monthly Expenses: MWK ${m.monthly_expenses}
+Cash Balance: MWK ${m.cash_balance}
+Existing Loans: MWK ${m.existing_loans}
+Employees: ${m.employees}
+Years in Operation: ${m.years_in_operation}
+Location: ${m.location}
+
+PESTEL Score: ${simulation.pestelScore.toFixed(1)}%
+FP-CISON Score: ${simulation.fpcisonScore.toFixed(1)}%
+
+FFCS Score: ${ffcsScore.toFixed(1)}%
+Base Survival: ${simulation.buckets.base.survival_rate.toFixed(1)}%
+Stress Survival: ${simulation.buckets.stress.survival_rate.toFixed(1)}%
+Crisis Survival: ${simulation.buckets.crisis.survival_rate.toFixed(1)}%
+Risk Level: ${riskLevel}
+
+Write a concise, professional summary (2-3 sentences) for the bank lender that explains:
+1. The confidence score
+2. Key risks identified
+3. Recommendation
+
+Keep it business-friendly for a Malawian bank.`;
+	let aiSummary = "";
+	try {
+		const { text } = await generateText({
+			model,
+			prompt: summaryPrompt
+		});
+		aiSummary = text;
+	} catch {
+		aiSummary = `${m.business_name} shows ${ffcsScore.toFixed(1)}% confidence of repayment over 18 months. PESTEL score ${simulation.pestelScore.toFixed(1)}%, FP-CISON score ${simulation.fpcisonScore.toFixed(1)}%. ${recommendation.split(":")[0]}.`;
+	}
+	return Response.json({
+		ffcs_score: Math.round(ffcsScore * 100) / 100,
+		base_survival: Math.round(simulation.buckets.base.survival_rate * 100) / 100,
+		stress_survival: Math.round(simulation.buckets.stress.survival_rate * 100) / 100,
+		crisis_survival: Math.round(simulation.buckets.crisis.survival_rate * 100) / 100,
+		recommendation,
+		ai_summary: aiSummary,
+		simulations_run: Math.round(1e3),
+		pestel_impact_score: Math.round(simulation.pestelScore * 100) / 100,
+		fpcison_impact_score: Math.round(simulation.fpcisonScore * 100) / 100,
+		scenario_breakdown: {
+			base: {
+				survival_rate: Math.round(simulation.buckets.base.survival_rate * 100) / 100,
+				avg_cashflow: Math.round(simulation.buckets.base.avg_cashflow * 100) / 100,
+				risk_level: simulation.buckets.base.risk_level,
+				count: simulation.buckets.base.count
+			},
+			stress: {
+				survival_rate: Math.round(simulation.buckets.stress.survival_rate * 100) / 100,
+				avg_cashflow: Math.round(simulation.buckets.stress.avg_cashflow * 100) / 100,
+				risk_level: simulation.buckets.stress.risk_level,
+				count: simulation.buckets.stress.count
+			},
+			crisis: {
+				survival_rate: Math.round(simulation.buckets.crisis.survival_rate * 100) / 100,
+				avg_cashflow: Math.round(simulation.buckets.crisis.avg_cashflow * 100) / 100,
+				risk_level: simulation.buckets.crisis.risk_level,
+				count: simulation.buckets.crisis.count
+			}
+		}
+	});
+} } } });
+var Route = createFileRoute("/.mcp/invoke-tool/$tool")({ server: { handlers: { ANY: createTanStackInvokeToolHandler(mcp_default, {
+	resourcePath: "/mcp",
+	metadataPath: "/.well-known/oauth-protected-resource",
+	trustForwardedHost: true
+}) } } });
+var rootRouteChildren = {
+	IndexRoute: Route$7.update({
+		id: "/",
+		path: "/",
+		getParentRoute: () => Route$8
+	}),
+	DashboardRoute: Route$6.update({
+		id: "/dashboard",
+		path: "/dashboard",
+		getParentRoute: () => Route$8
+	}),
+	LoginRoute: Route$5.update({
+		id: "/login",
+		path: "/login",
+		getParentRoute: () => Route$8
+	}),
+	McpRoute: Route$4.update({
+		id: "/mcp",
+		path: "/mcp",
+		getParentRoute: () => Route$8
+	}),
+	Char91DotmcpChar93ListToolsRoute: Route$3.update({
+		id: "/.mcp/list-tools",
+		path: "/.mcp/list-tools",
+		getParentRoute: () => Route$8
+	}),
+	Char91DotwellKnownChar93OauthProtectedResourceRoute: Route$2.update({
+		id: "/.well-known/oauth-protected-resource",
+		path: "/.well-known/oauth-protected-resource",
+		getParentRoute: () => Route$8
+	}),
+	ApiSimulateRoute: Route$1.update({
+		id: "/api/simulate",
+		path: "/api/simulate",
+		getParentRoute: () => Route$8
+	}),
+	Char91DotmcpChar93InvokeToolToolRoute: Route.update({
+		id: "/.mcp/invoke-tool/$tool",
+		path: "/.mcp/invoke-tool/$tool",
+		getParentRoute: () => Route$8
+	})
+};
+var routeTree = Route$8._addFileChildren(rootRouteChildren)._addFileTypes();
+var getRouter = () => {
+	return createRouter({
+		routeTree,
+		context: { queryClient: new QueryClient() },
+		scrollRestoration: true,
+		defaultPreloadStaleTime: 0
+	});
+};
+//#endregion
+export { getRouter };
