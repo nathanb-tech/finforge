@@ -1,0 +1,45 @@
+file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:509
+			const error = /* @__PURE__ */ new Error("Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.");
+			                              ^
+
+Error: Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:509:34
+    at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:9:49
+    at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/parse-D4dtlfWy.mjs:3:46
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async node:internal/modules/esm/loader:639:26 {
+  cause: Error: \\?\c:\Users\TheeNdb\Documents\Portfolio\FIN-VERSE\node_modules\vite\node_modules\@rolldown\binding-win32-x64-msvc\rolldown-binding.win32-x64-msvc.node is not a valid Win32 application.
+  \\?\c:\Users\TheeNdb\Documents\Portfolio\FIN-VERSE\node_modules\vite\node_modules\@rolldown\binding-win32-x64-msvc\rolldown-binding.win32-x64-msvc.node
+      at Object..node (node:internal/modules/cjs/loader:1996:18)
+      at Module.load (node:internal/modules/cjs/loader:1552:32)
+      at Module._load (node:internal/modules/cjs/loader:1354:12)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+      at Module.require (node:internal/modules/cjs/loader:1575:12)
+      at require (node:internal/modules/helpers:191:16)
+      at requireNative (file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:147:21)
+      at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:475:18
+      at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:9:49
+      at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/parse-D4dtlfWy.mjs:3:46 {
+    code: 'ERR_DLOPEN_FAILED',
+    cause: Error: Cannot find module './rolldown-binding.win32-x64-msvc.node'
+    Require stack:
+    - c:\Users\TheeNdb\Documents\Portfolio\FIN-VERSE\node_modules\vite\node_modules\rolldown\dist\shared\binding-TuFFIE_J.mjs
+        at Module._resolveFilename (node:internal/modules/cjs/loader:1475:15)
+        at wrapResolveFilename (node:internal/modules/cjs/loader:1048:27)
+        at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1072:10)
+        at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1093:12)
+        at Module._load (node:internal/modules/cjs/loader:1261:25)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+        at Module.require (node:internal/modules/cjs/loader:1575:12)
+        at require (node:internal/modules/helpers:191:16)
+        at requireNative (file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:142:12)
+        at file:///c:/Users/TheeNdb/Documents/Portfolio/FIN-VERSE/node_modules/vite/node_modules/rolldown/dist/shared/binding-TuFFIE_J.mjs:475:18 {
+      code: 'MODULE_NOT_FOUND',
+      requireStack: [
+        'c:\\Users\\TheeNdb\\Documents\\Portfolio\\FIN-VERSE\\node_modules\\vite\\node_modules\\rolldown\\dist\\shared\\binding-TuFFIE_J.mjs'
+      ]
+    }
+  }
+}
+
+Node.js v25.9.0

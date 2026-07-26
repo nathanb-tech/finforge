@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "finverse-ai-mcp",
+      "version": "0.1.0",
+      "title": "Finverse.ai MCP"
+    },
+    "tools": [
+      {
+        "name": "simulate_msme_future",
+        "title": "Simulate MSME Future Financial Confidence",
+        "description": "Run FINVERSE AI's 1,000-scenario Monte Carlo across BASE / STRESS / CRISIS regimes for a Malawian MSME and return the Future Financial Confidence Score (0-100), regime survival probabilities, an AI summary, and a lender recommendation. Fully stateless — takes a business profile in the call, returns the forecast.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "business_name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Business or trading name."
+            },
+            "sector": {
+              "type": "string",
+              "enum": [
+                "Retail",
+                "Agriculture",
+                "Manufacturing",
+                "Services",
+                "Transport",
+                "Hospitality"
+              ],
+              "description": "Primary sector of the MSME."
+            },
+            "monthly_revenue": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Average monthly revenue in MWK."
+            },
+            "monthly_expenses": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Average monthly operating expenses in MWK."
+            },
+            "cash_balance": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Current cash on hand in MWK."
+            },
+            "existing_loans": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Outstanding loan principal in MWK."
+            },
+            "employees": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991,
+              "description": "Number of employees."
+            }
+          },
+          "required": [
+            "business_name",
+            "sector",
+            "monthly_revenue",
+            "monthly_expenses",
+            "cash_balance",
+            "existing_loans",
+            "employees"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "quick_financial_health",
+        "title": "Quick MSME Financial Health",
+        "description": "Deterministic (no-AI) quick check of an MSME's core financial ratios: net monthly cashflow, runway in months, debt-to-annual-revenue ratio, and a rough 0-100 heuristic health score. Useful for a fast sanity check before running the full simulation.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "monthly_revenue": {
+              "type": "number",
+              "minimum": 0
+            },
+            "monthly_expenses": {
+              "type": "number",
+              "minimum": 0
+            },
+            "cash_balance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "existing_loans": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "monthly_revenue",
+            "monthly_expenses",
+            "cash_balance",
+            "existing_loans"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
