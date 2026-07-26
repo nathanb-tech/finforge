@@ -17,16 +17,5 @@
   "bugs": {
     "url": "https://github.com/nathanb-tech/finforge/issues"
   },
-  "homepage": "https://github.com/nathanb-tech/finforge#readme",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.110.8",
-    "@tanstack/react-query": "^5.101.4",
-    "@tanstack/react-router": "^1.170.18",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
-  },
-  "devDependencies": {
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3"
-  }
+  "homepage": "https://github.com/nathanb-tech/finforge#readme"
 }
