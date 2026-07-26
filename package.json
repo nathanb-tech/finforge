@@ -1,0 +1,32 @@
+{
+  "name": "finforge",
+  "version": "1.0.0",
+  "description": "The AI That Predicts Whether a Business Will Succeed Before a Bank Lends to It",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanb-tech/finforge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nathanb-tech/finforge/issues"
+  },
+  "homepage": "https://github.com/nathanb-tech/finforge#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.8",
+    "@tanstack/react-query": "^5.101.4",
+    "@tanstack/react-router": "^1.170.18",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
+}
